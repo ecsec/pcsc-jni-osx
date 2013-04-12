@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="OS X PCSC JNI" default="compile" basedir=".">
+    <target name="compile">
+	<javac srcdir="java_source" destdir="java_classes" source="1.7" includeJavaRuntime="yes" includeAntRuntime="false" />
+    </target>
+</project>
