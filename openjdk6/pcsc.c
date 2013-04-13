@@ -52,7 +52,7 @@
 #define dprintf3(s, p1, p2, p3)
 #endif
 
-#include "sun_security_smartcardio_PCSC.h"
+#include "org_openecard_scio_osx_PCSC.h"
 
 #include "pcsc_md.h"
 
@@ -63,7 +63,7 @@
 #define READERNAME_BUFFER_SIZE 128
 #define RECEIVE_BUFFER_SIZE MAX_STACK_BUFFER_SIZE
 
-#define J2PCSC_EXCEPTION_NAME "sun/security/smartcardio/PCSCException"
+#define J2PCSC_EXCEPTION_NAME "org/openecard/scio/osx/PCSCException"
 
 void throwPCSCException(JNIEnv* env, LONG code) {
     jclass pcscClass;
@@ -91,7 +91,7 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *reserved) {
     return JNI_VERSION_1_4;
 }
 
-JNIEXPORT jlong JNICALL Java_sun_security_smartcardio_PCSC_SCardEstablishContext
+JNIEXPORT jlong JNICALL Java_org_openecard_scio_osx_PCSC_SCardEstablishContext
     (JNIEnv *env, jclass thisClass, jint dwScope)
 {
     SCARDCONTEXT context;
@@ -142,7 +142,7 @@ jobjectArray pcsc_multi2jstring(JNIEnv *env, char *spec) {
     return result;
 }
 
-JNIEXPORT jobjectArray JNICALL Java_sun_security_smartcardio_PCSC_SCardListReaders
+JNIEXPORT jobjectArray JNICALL Java_org_openecard_scio_osx_PCSC_SCardListReaders
     (JNIEnv *env, jclass thisClass, jlong jContext)
 {
     SCARDCONTEXT context = (SCARDCONTEXT)jContext;
@@ -171,7 +171,7 @@ JNIEXPORT jobjectArray JNICALL Java_sun_security_smartcardio_PCSC_SCardListReade
     return result;
 }
 
-JNIEXPORT jlong JNICALL Java_sun_security_smartcardio_PCSC_SCardConnect
+JNIEXPORT jlong JNICALL Java_org_openecard_scio_osx_PCSC_SCardConnect
     (JNIEnv *env, jclass thisClass, jlong jContext, jstring jReaderName,
     jint jShareMode, jint jPreferredProtocols)
 {
@@ -193,7 +193,7 @@ JNIEXPORT jlong JNICALL Java_sun_security_smartcardio_PCSC_SCardConnect
     return (jlong)card;
 }
 
-JNIEXPORT jbyteArray JNICALL Java_sun_security_smartcardio_PCSC_SCardTransmit
+JNIEXPORT jbyteArray JNICALL Java_org_openecard_scio_osx_PCSC_SCardTransmit
     (JNIEnv *env, jclass thisClass, jlong jCard, jint protocol,
     jbyteArray jBuf, jint jOfs, jint jLen)
 {
@@ -223,7 +223,7 @@ JNIEXPORT jbyteArray JNICALL Java_sun_security_smartcardio_PCSC_SCardTransmit
     return jOut;
 }
 
-JNIEXPORT jbyteArray JNICALL Java_sun_security_smartcardio_PCSC_SCardStatus
+JNIEXPORT jbyteArray JNICALL Java_org_openecard_scio_osx_PCSC_SCardStatus
     (JNIEnv *env, jclass thisClass, jlong jCard, jbyteArray jStatus)
 {
     SCARDHANDLE card = (SCARDHANDLE)jCard;
@@ -256,7 +256,7 @@ JNIEXPORT jbyteArray JNICALL Java_sun_security_smartcardio_PCSC_SCardStatus
     return jArray;
 }
 
-JNIEXPORT void JNICALL Java_sun_security_smartcardio_PCSC_SCardDisconnect
+JNIEXPORT void JNICALL Java_org_openecard_scio_osx_PCSC_SCardDisconnect
     (JNIEnv *env, jclass thisClass, jlong jCard, jint jDisposition)
 {
     SCARDHANDLE card = (SCARDHANDLE)jCard;
@@ -268,7 +268,7 @@ JNIEXPORT void JNICALL Java_sun_security_smartcardio_PCSC_SCardDisconnect
     return;
 }
 
-JNIEXPORT jintArray JNICALL Java_sun_security_smartcardio_PCSC_SCardGetStatusChange
+JNIEXPORT jintArray JNICALL Java_org_openecard_scio_osx_PCSC_SCardGetStatusChange
     (JNIEnv *env, jclass thisClass, jlong jContext, jlong jTimeout,
     jintArray jCurrentState, jobjectArray jReaderNames)
 {
@@ -308,7 +308,7 @@ JNIEXPORT jintArray JNICALL Java_sun_security_smartcardio_PCSC_SCardGetStatusCha
     return jEventState;
 }
 
-JNIEXPORT void JNICALL Java_sun_security_smartcardio_PCSC_SCardBeginTransaction
+JNIEXPORT void JNICALL Java_org_openecard_scio_osx_PCSC_SCardBeginTransaction
     (JNIEnv *env, jclass thisClass, jlong jCard)
 {
     SCARDHANDLE card = (SCARDHANDLE)jCard;
@@ -320,7 +320,7 @@ JNIEXPORT void JNICALL Java_sun_security_smartcardio_PCSC_SCardBeginTransaction
     return;
 }
 
-JNIEXPORT void JNICALL Java_sun_security_smartcardio_PCSC_SCardEndTransaction
+JNIEXPORT void JNICALL Java_org_openecard_scio_osx_PCSC_SCardEndTransaction
     (JNIEnv *env, jclass thisClass, jlong jCard, jint jDisposition)
 {
     SCARDHANDLE card = (SCARDHANDLE)jCard;
@@ -332,7 +332,7 @@ JNIEXPORT void JNICALL Java_sun_security_smartcardio_PCSC_SCardEndTransaction
     return;
 }
 
-JNIEXPORT jbyteArray JNICALL Java_sun_security_smartcardio_PCSC_SCardControl
+JNIEXPORT jbyteArray JNICALL Java_org_openecard_scio_osx_PCSC_SCardControl
     (JNIEnv *env, jclass thisClass, jlong jCard, jint jControlCode, jbyteArray jSendBuffer)
 {
     SCARDHANDLE card = (SCARDHANDLE)jCard;

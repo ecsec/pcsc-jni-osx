@@ -23,9 +23,9 @@
  * questions.
  */
 
-package sun.security.smartcardio;
+package org.openecard.scio.osx;
 
-import static sun.security.smartcardio.PCSC.*;
+import static org.openecard.scio.osx.PCSC.*;
 
 /**
  * Exception for PC/SC errors. The native code portion checks the return value

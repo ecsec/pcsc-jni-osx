@@ -23,7 +23,7 @@
  * questions.
  */
 
-package sun.security.smartcardio;
+package org.openecard.scio.osx;
 
 import java.io.File;
 import java.io.IOException;
@@ -50,7 +50,6 @@ class PlatformPCSC {
 
     private final static String LIB1 = "/usr/$LIBISA/libpcsclite.so";
     private final static String LIB2 = "/usr/local/$LIBISA/libpcsclite.so";
-    private final static String PCSC_FRAMEWORK = "/System/Library/Frameworks/PCSC.framework/Versions/Current/PCSC";
 
     PlatformPCSC() {
         // empty
@@ -60,7 +59,7 @@ class PlatformPCSC {
         initException = AccessController.doPrivileged(new PrivilegedAction<Throwable>() {
             public Throwable run() {
                 try {
-                    System.loadLibrary("j2pcsc");
+                    System.loadLibrary("osxj2pcsc");
                     String library = getLibraryName();
                     if (debug != null) {
                         debug.println("Using PC/SC library: " + library);
@@ -112,11 +111,6 @@ class PlatformPCSC {
         lib = expand(LIB2);
         if (new File(lib).isFile()) {
             // if LIB2 exists, use that
-            return lib;
-        }
-        lib = PCSC_FRAMEWORK;
-        if (new File(lib).isFile()) {
-            // if PCSC.framework exists, use that
             return lib;
         }
         throw new IOException("No PC/SC library found on this system");

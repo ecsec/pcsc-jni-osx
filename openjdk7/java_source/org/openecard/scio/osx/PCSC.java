@@ -23,7 +23,7 @@
  * questions.
  */
 
-package sun.security.smartcardio;
+package org.openecard.scio.osx;
 
 import java.security.AccessController;
 

@@ -23,13 +23,13 @@
  * questions.
  */
 
-package sun.security.smartcardio;
+package org.openecard.scio.osx;
 
 import java.util.*;
 
 import javax.smartcardio.*;
 
-import static sun.security.smartcardio.PCSC.*;
+import static org.openecard.scio.osx.PCSC.*;
 
 /**
  * CardTerminal implementation.

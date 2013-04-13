@@ -23,7 +23,7 @@
  * questions.
  */
 
-package sun.security.smartcardio;
+package org.openecard.scio.osx;
 
 import java.security.*;
 
@@ -40,10 +40,10 @@ public final class SunPCSC extends Provider {
     private static final long serialVersionUID = 6168388284028876579L;
 
     public SunPCSC() {
-        super("SunPCSC", 1.6d, "Sun PC/SC provider");
+        super("SunPCSC", 1.7d, "Sun PC/SC provider");
         AccessController.doPrivileged(new PrivilegedAction<Void>() {
             public Void run() {
-                put("TerminalFactory.PC/SC", "sun.security.smartcardio.SunPCSC$Factory");
+                put("TerminalFactory.PC/SC", "org.openecard.scio.osx.SunPCSC$Factory");
                 return null;
             }
         });

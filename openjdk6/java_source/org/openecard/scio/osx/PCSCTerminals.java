@@ -23,7 +23,7 @@
  * questions.
  */
 
-package sun.security.smartcardio;
+package org.openecard.scio.osx;
 
 import java.util.*;
 import java.lang.ref.*;
@@ -31,7 +31,7 @@ import java.lang.ref.*;
 import javax.smartcardio.*;
 import static javax.smartcardio.CardTerminals.State.*;
 
-import static sun.security.smartcardio.PCSC.*;
+import static org.openecard.scio.osx.PCSC.*;
 
 /**
  * TerminalFactorySpi implementation class.

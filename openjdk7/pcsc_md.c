@@ -35,7 +35,7 @@
 
 #include <jni_util.h>
 
-#include "sun_security_smartcardio_PlatformPCSC.h"
+#include "org_openecard_scio_osx_PlatformPCSC.h"
 
 #include "pcsc_md.h"
 
@@ -62,7 +62,7 @@ void *findFunction(JNIEnv *env, void *hModule, char *functionName) {
     return fAddress;
 }
 
-JNIEXPORT void JNICALL Java_sun_security_smartcardio_PlatformPCSC_initialize
+JNIEXPORT void JNICALL Java_org_openecard_scio_osx_PlatformPCSC_initialize
         (JNIEnv *env, jclass thisClass, jstring jLibName) {
     const char *libName = (*env)->GetStringUTFChars(env, jLibName, NULL);
     hModule = dlopen(libName, RTLD_LAZY);

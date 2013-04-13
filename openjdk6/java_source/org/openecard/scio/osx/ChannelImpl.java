@@ -23,14 +23,14 @@
  * questions.
  */
 
-package sun.security.smartcardio;
+package org.openecard.scio.osx;
 
 import java.nio.*;
 import java.security.AccessController;
 
 import javax.smartcardio.*;
 
-import static sun.security.smartcardio.PCSC.*;
+import static org.openecard.scio.osx.PCSC.*;
 
 import sun.security.action.GetPropertyAction;
 
