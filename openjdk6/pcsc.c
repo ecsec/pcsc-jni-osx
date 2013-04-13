@@ -35,7 +35,8 @@
 #include <string.h>
 #include <assert.h>
 
-#include <winscard.h>
+#include <PCSC/wintypes.h>
+#include <PCSC/winscard.h>
 
 // #define J2PCSC_DEBUG
 

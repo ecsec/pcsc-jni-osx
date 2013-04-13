@@ -30,7 +30,8 @@
 
 #include <dlfcn.h>
 
-#include <winscard.h>
+#include <PCSC/wintypes.h>
+#include <PCSC/winscard.h>
 
 #include <jni_util.h>
 
@@ -80,5 +81,5 @@ JNIEXPORT void JNICALL Java_sun_security_smartcardio_PlatformPCSC_initialize
     scardListReaders      = (FPTR_SCardListReaders)     findFunction(env, hModule, "SCardListReaders");
     scardBeginTransaction = (FPTR_SCardBeginTransaction)findFunction(env, hModule, "SCardBeginTransaction");
     scardEndTransaction   = (FPTR_SCardEndTransaction)  findFunction(env, hModule, "SCardEndTransaction");
-    scardControl          = (FPTR_SCardControl)         findFunction(env, hModule, "SCardControl");
+    scardControl          = (FPTR_SCardControl)         findFunction(env, hModule, "SCardControl132");
 }
